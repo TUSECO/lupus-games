@@ -65,9 +65,9 @@ PIECE_UNICODE = {
 }
 
 DIFFICULTY_NAMES = {
-    'easy': 'Kolay',
-    'medium': 'Orta',
-    'hard': 'Zor'
+    'easy': 'Easy',
+    'medium': 'Medium',
+    'hard': 'Hard'
 }
 
 
@@ -92,7 +92,7 @@ class PromotionDialog(QDialog):
         super().__init__(parent)
         self.color = color
         self.selected_piece = 'Q'
-        self.setWindowTitle("Piyon Terfisi")
+        self.setWindowTitle("Pawn Promotion")
         self.setModal(True)
         self.setFixedSize(380, 160)
         self.setStyleSheet(f"""
@@ -109,7 +109,7 @@ class PromotionDialog(QDialog):
         layout.setSpacing(12)
         layout.setContentsMargins(20, 20, 20, 20)
 
-        title = QLabel("Terfi için taş seçin:")
+        title = QLabel("Choose stone for promotion:")
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         title.setStyleSheet(f"color: {TEXT_WHITE.name()}; font-size: 16px; font-weight: 600;")
         layout.addWidget(title)
@@ -384,7 +384,7 @@ class GameSettingsWidget(QWidget):
         layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         # Başlık
-        title = QLabel("♟ SATRANÇ")
+        title = QLabel("♟ CHESS GAME ♟")
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         title.setStyleSheet("""
             font-size: 48px;
@@ -393,11 +393,6 @@ class GameSettingsWidget(QWidget):
             letter-spacing: 8px;
         """)
         layout.addWidget(title)
-
-        subtitle = QLabel("Python · PyQt6 · AI ile Satranç")
-        subtitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        subtitle.setStyleSheet("font-size: 14px; color: #8B949E; margin-bottom: 20px;")
-        layout.addWidget(subtitle)
 
         # Ana kart
         card = QFrame()
@@ -414,12 +409,12 @@ class GameSettingsWidget(QWidget):
         card_layout.setContentsMargins(30, 30, 30, 30)
 
         # ── Zorluk Seçimi ──
-        diff_group = self._make_group("🎯  Zorluk Seviyesi")
+        diff_group = self._make_group("🎯  Difficulty")
         diff_h = QHBoxLayout()
         diff_h.setSpacing(10)
 
         self.diff_btns = {}
-        diff_options = [('easy', '😊  Kolay'), ('medium', '🧠  Orta'), ('hard', '🔥  Zor')]
+        diff_options = [('easy', '😊  Easy'), ('medium', '🧠  Medium'), ('hard', '🔥  Hard')]
         self.diff_bg = QButtonGroup(self)
 
         for i, (key, label) in enumerate(diff_options):
@@ -435,12 +430,12 @@ class GameSettingsWidget(QWidget):
         card_layout.addWidget(diff_group)
 
         # ── Rakip Modu ──
-        opp_group = self._make_group("🤖  Rakip Modu")
+        opp_group = self._make_group("🤖  Opponent Mode")
         opp_h = QHBoxLayout()
         opp_h.setSpacing(10)
 
         self.opp_btns = {}
-        opp_options = [('ai', '🤖  Yapay Zeka'), ('manual', '👥  Manuel (Sen Oyna)')]
+        opp_options = [('ai', '🤖  AI'), ('manual', '👥  Manual (You Play)')]
         self.opp_bg = QButtonGroup(self)
 
         for i, (key, label) in enumerate(opp_options):
@@ -456,12 +451,12 @@ class GameSettingsWidget(QWidget):
         card_layout.addWidget(opp_group)
 
         # ── Renk Seçimi ──
-        color_group = self._make_group("🎨  Renk Seçimi")
+        color_group = self._make_group("🎨  Color Selection")
         color_h = QHBoxLayout()
         color_h.setSpacing(10)
 
         self.color_btns = {}
-        color_options = [('random', '🎲  Rastgele'), ('white', '⬜  Beyaz'), ('black', '⬛  Siyah')]
+        color_options = [('random', '🎲  Random'), ('white', '⬜  White'), ('black', '⬛  Black')]
         self.color_bg = QButtonGroup(self)
 
         for i, (key, label) in enumerate(color_options):
@@ -479,7 +474,7 @@ class GameSettingsWidget(QWidget):
         layout.addWidget(card)
 
         # ── Başlat Butonu ──
-        start_btn = QPushButton("  OYUNU BAŞLAT  ►")
+        start_btn = QPushButton("  START GAME  ")
         start_btn.setFixedHeight(56)
         start_btn.setStyleSheet(f"""
             QPushButton {{
@@ -661,7 +656,7 @@ class GameWidget(QWidget):
         info_h.setContentsMargins(16, 8, 16, 8)
         info_h.setSpacing(16)
 
-        self.turn_label = QLabel("⬜ Beyazın sırası")
+        self.turn_label = QLabel("⬜ White's Turn")
         self.turn_label.setStyleSheet(f"color: {TEXT_WHITE.name()}; font-size: 15px; font-weight: 600;")
         info_h.addWidget(self.turn_label)
 
@@ -707,13 +702,13 @@ class GameWidget(QWidget):
         info_v.setContentsMargins(14, 14, 14, 14)
         info_v.setSpacing(8)
 
-        self.diff_label = QLabel("Zorluk: —")
+        self.diff_label = QLabel("Difficulty: —")
         self.diff_label.setStyleSheet(f"color: {TEXT_MUTED.name()}; font-size: 12px;")
 
-        self.mode_label = QLabel("Mod: —")
+        self.mode_label = QLabel("Mode: —")
         self.mode_label.setStyleSheet(f"color: {TEXT_MUTED.name()}; font-size: 12px;")
 
-        self.color_label = QLabel("Rengin: —")
+        self.color_label = QLabel("Color: —")
         self.color_label.setStyleSheet(f"color: {TEXT_MUTED.name()}; font-size: 12px;")
 
         self.ai_status = QLabel("")
@@ -767,17 +762,17 @@ class GameWidget(QWidget):
             QPushButton:hover {{ background: #21262D; }}
         """
 
-        new_game_btn = QPushButton("🔄  Yeni Oyun")
+        new_game_btn = QPushButton("🔄  New Game")
         new_game_btn.setStyleSheet(btn_style_primary)
         new_game_btn.clicked.connect(self.back_to_menu.emit)
         right.addWidget(new_game_btn)
 
-        flip_btn = QPushButton("🔃  Tahtayı Çevir")
+        flip_btn = QPushButton("🔃  Flip Board")
         flip_btn.setStyleSheet(btn_style_neutral)
         flip_btn.clicked.connect(self._flip_board)
         right.addWidget(flip_btn)
 
-        resign_btn = QPushButton("🏳  Pes Et")
+        resign_btn = QPushButton("🏳  Resign")
         resign_btn.setStyleSheet(btn_style_danger)
         resign_btn.clicked.connect(self._resign)
         right.addWidget(resign_btn)
@@ -802,7 +797,7 @@ class GameWidget(QWidget):
         h.setSpacing(10)
 
         symbol = "⬜" if color == 'white' else "⬛"
-        name = QLabel(f"{symbol}  {'Beyaz' if color == 'white' else 'Siyah'}")
+        name = QLabel(f"{symbol}  {'White' if color == 'white' else 'Black'}")
         name.setStyleSheet(f"color: {TEXT_WHITE.name()}; font-size: 14px; font-weight: 600;")
         h.addWidget(name)
         h.addStretch()
@@ -830,24 +825,24 @@ class GameWidget(QWidget):
         self.move_list.clear_moves()
 
         # Bilgi güncelle
-        self.diff_label.setText(f"Zorluk: {DIFFICULTY_NAMES.get(difficulty, difficulty)}")
+        self.diff_label.setText(f"Difficulty: {DIFFICULTY_NAMES.get(difficulty, difficulty)}")
 
         if opponent_mode == 'ai':
-            mode_text = "Mod: vs Yapay Zeka"
+            mode_text = "Mode: vs AI"
         else:
-            mode_text = "Mod: Manuel (İki Taraf)"
+            mode_text = "Mode: Manual (Two Players)"
         self.mode_label.setText(mode_text)
 
         color_icon = '⬜' if player_color == 'white' else '⬛'
-        self.color_label.setText(f"Rengin: {color_icon} {'Beyaz' if player_color == 'white' else 'Siyah'}")
+        self.color_label.setText(f"Color: {color_icon} {'White' if player_color == 'white' else 'Black'}")
 
         # Oyuncu rolleri
         if opponent_mode == 'ai':
-            self.white_role_label.setText("👤 Sen" if player_color == 'white' else "🤖 AI")
-            self.black_role_label.setText("🤖 AI" if player_color == 'white' else "👤 Sen")
+            self.white_role_label.setText("👤 You" if player_color == 'white' else "🤖 AI")
+            self.black_role_label.setText("🤖 AI" if player_color == 'white' else "👤 You")
         else:
-            self.white_role_label.setText("👤 Oyuncu")
-            self.black_role_label.setText("👤 Oyuncu")
+            self.white_role_label.setText("👤 Player")
+            self.black_role_label.setText("👤 Player")
 
         self._update_turn_label()
 
@@ -864,11 +859,11 @@ class GameWidget(QWidget):
             return
         turn = self.board.current_turn
         icon = "⬜" if turn == 'white' else "⬛"
-        turn_name = "Beyaz" if turn == 'white' else "Siyah"
-        self.turn_label.setText(f"{icon}  {turn_name}ın sırası")
+        turn_name = "White" if turn == 'white' else "Black"
+        self.turn_label.setText(f"{icon}  {turn_name}'s Turn")
 
         if self.board.is_in_check(turn):
-            self.status_label.setText("⚠️ ŞAH!")
+            self.status_label.setText("⚠️ CHECK!")
             self.status_label.setStyleSheet(f"color: {DANGER.name()}; font-size: 13px; font-weight: 700;")
         else:
             self.status_label.setText("")
@@ -968,21 +963,21 @@ class GameWidget(QWidget):
             self._pending_white = None
 
         if winner is None:
-            title = "Berabere!"
-            msg = "Oyun berabere bitti. (Pat / 50 hamle)"
+            title = "Draw!"
+            msg = "The game ended in a draw. (Stalemate / 50-move rule)"
             icon = "🤝"
         elif self.opponent_mode == 'manual':
-            winner_name = "Beyaz" if winner == 'white' else "Siyah"
-            title = f"{winner_name} Kazandı!"
-            msg = f"{winner_name} oyunu kazandı! Tebrikler! 👑"
+            winner_name = "White" if winner == 'white' else "Black"
+            title = f"{winner_name} Wins!"
+            msg = f"{winner_name} won the game! Congratulations! 👑"
             icon = "🏆"
         elif winner == self.player_color:
-            title = "Tebrikler!"
-            msg = "Kazandınız! Harika oynayış! 🎉"
+            title = "Congratulations!"
+            msg = "You won! Great gameplay! 🎉"
             icon = "🏆"
         else:
-            title = "AI Kazandı"
-            msg = "Yapay zeka sizi yendi. Tekrar dene!"
+            title = "AI Won"
+            msg = "The AI defeated you. Try again!"
             icon = "🤖"
 
         self.turn_label.setText(f"{icon}  {title}")
@@ -996,9 +991,9 @@ class GameWidget(QWidget):
         dialog = QMessageBox(self)
         dialog.setWindowTitle(title)
         dialog.setText(f"{icon}\n\n{title}\n\n{msg}")
-        dialog.setInformativeText("Ne yapmak istersiniz?")
-        dialog.addButton("🔄 Yeni Oyun", QMessageBox.ButtonRole.AcceptRole)
-        dialog.addButton("❌ Kapat", QMessageBox.ButtonRole.RejectRole)
+        dialog.setInformativeText("What would you like to do?")
+        dialog.addButton("🔄 New Game", QMessageBox.ButtonRole.AcceptRole)
+        dialog.addButton("❌ Close", QMessageBox.ButtonRole.RejectRole)
         dialog.setStyleSheet(f"""
             QMessageBox {{
                 background: {DARK_BG.name()};
@@ -1031,8 +1026,8 @@ class GameWidget(QWidget):
         if self.game_over:
             return
         reply = QMessageBox.question(
-            self, "Pes Et",
-            "Gerçekten pes etmek istiyor musunuz?",
+            self, "Resign",
+            "Are you sure you want to resign?",
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
         )
         if reply == QMessageBox.StandardButton.Yes:
@@ -1050,7 +1045,7 @@ def _icon(name: str) -> QIcon:
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("♟ Satranç Oyunu")
+        self.setWindowTitle("♟ Chess Game ♟")
         self.setMinimumSize(860, 720)
         self.resize(1000, 780)
         self._apply_global_style()
@@ -1098,7 +1093,7 @@ class MainWindow(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
-    app.setApplicationName("Satranç Oyunu")
+    app.setApplicationName("Chess Game")
     app.setStyle("Fusion")
 
     # Font ayarla
