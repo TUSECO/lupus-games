@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=FlappyBird
+GenericName=FlappyBird
+Exec=flappybird %u
+Icon=flappybird
+Terminal=false
+Categories=Qt;LupuS;Games
+Keywords=games;lupus;flappybird
+StartupNotify=true
+StartupWMClass=flappybird

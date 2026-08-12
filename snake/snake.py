@@ -19,7 +19,7 @@ class SnakeGame(QWidget):
         super().__init__()
         self.setWindowTitle("Snake Game")
         self.resize(CELL_SIZE * GRID_WIDTH, CELL_SIZE * GRID_HEIGHT)
-        self.setWindowIcon(_icon("favicon.png"))
+        self.setWindowIcon(_icon("snake.png"))
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_game)

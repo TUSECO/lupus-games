@@ -1,7 +1,7 @@
 ### LupuS Games
 
 **Games:**
-- FlappyBird
+- FlappyBird (Temporarily removed)
 - Chess
 - TicTacToe
 - Snake
@@ -13,15 +13,15 @@
 - noise
 
 ```bash
-# Install
-chmod +x ./install.sh
-./install.sh install
+# Clone Repository
+git clone https://github.com/TeknoAnka/lupus-games
+cd lupus-games
 
-# Uninstall
-chmod +x ./install.sh
-./install.sh uninstall
+# Start Build
+cd example-game
+chmod +x ./build-pisi.sh
+sudo ./build-pisi.sh
 
-# Reinstall
-chmod +x ./install.sh
-./install.sh reinstall
+# Install Package
+sudo pisi it ./example-game-*-x86_64.pisi
 ```

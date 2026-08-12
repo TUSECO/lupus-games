@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>snake</Name>
+        <Homepage>https://github.com/TeknoAnka/lupus-games</Homepage>
+        <Packager>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>app:gui</IsA>
+        <Summary>Snake is a classic arcade game built with PyQt6 for the LupuS Operating System.</Summary>
+        <Description>Snake is a classic arcade game built with PyQt6 for the LupuS Operating System.</Description>
+    </Source>
+
+    <Package>
+        <Name>snake</Name>
+        <RuntimeDependencies>
+            <Dependency>python3</Dependency>
+            <Dependency>python3-qt6</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/snake</Path>
+            <Path fileType="data">/usr/share/snake</Path>
+            <Path fileType="data">/usr/share/applications/snake.desktop</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/128x128/apps/snake.png</Path>
+            <Path fileType="doc">/usr/share/doc/snake</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2026-08-12</Date>
+            <Version>2.0.0</Version>
+            <Comment>Snake package release</Comment>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Update>
+    </History>
+</PISI>

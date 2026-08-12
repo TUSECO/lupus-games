@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>chess</Name>
+        <Homepage>https://github.com/TeknoAnka/lupus-games</Homepage>
+        <Packager>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>app:gui</IsA>
+        <Summary>Chess is a classic strategy game built with Python and PyQt6 for the LupuS Operating System.</Summary>
+        <Description>Chess is a classic strategy game built with Python and PyQt6 for the LupuS Operating System.</Description>
+    </Source>
+
+    <Package>
+        <Name>chess</Name>
+        <RuntimeDependencies>
+            <Dependency>python3</Dependency>
+            <Dependency>python3-qt6</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/chess</Path>
+            <Path fileType="data">/usr/share/chess</Path>
+            <Path fileType="data">/usr/share/applications/chess.desktop</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/128x128/apps/chess.png</Path>
+            <Path fileType="doc">/usr/share/doc/chess</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2026-08-12</Date>
+            <Version>2.0.0</Version>
+            <Comment>Chess package release</Comment>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Update>
+    </History>
+</PISI>

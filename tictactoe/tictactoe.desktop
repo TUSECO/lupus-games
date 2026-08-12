@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=TicTacToe
+GenericName=TicTacToe
+Exec=tictactoe %u
+Icon=tictactoe
+Terminal=false
+Categories=Qt;LupuS;Games
+Keywords=games;lupus;tic;tac;toe;x;o;x;
+StartupNotify=true
+StartupWMClass=tictactoe

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Snake Game
+Name[tr]=Yılan Oyunu
+GenericName=Snake Game
+GenericName[tr]=Yılan Oyunu
+Exec=snake %u
+Icon=snake
+Terminal=false
+Categories=Qt;LupuS;Games
+Keywords=games;lupus;snake
+StartupNotify=true
+StartupWMClass=snake

@@ -1050,7 +1050,7 @@ class MainWindow(QMainWindow):
         self.resize(1000, 780)
         self._apply_global_style()
         self._setup_ui()
-        self.setWindowIcon(_icon("favicon.png"))
+        self.setWindowIcon(_icon("chess.png"))
 
     def _apply_global_style(self):
         self.setStyleSheet(f"""

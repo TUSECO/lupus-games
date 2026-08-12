@@ -378,7 +378,7 @@ class MinesweeperWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Minesweeper")
         self.setMinimumSize(500, 400)
-        self.setWindowIcon(_icon("favicon.png"))
+        self.setWindowIcon(_icon("minesweeper.png"))
 
         # Game state
         self.rows = 9

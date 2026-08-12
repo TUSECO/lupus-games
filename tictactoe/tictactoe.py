@@ -15,7 +15,7 @@ class TicTacToe(QWidget):
         super().__init__()
         self.setWindowTitle("TicTacToe")
         self.setFixedSize(600, 600)
-        self.setWindowIcon(_icon("favicon.png"))
+        self.setWindowIcon(_icon("tictactoe.png"))
 
         # Arka plan rengi (nightblue'un koyu hali)
         palette = self.palette()

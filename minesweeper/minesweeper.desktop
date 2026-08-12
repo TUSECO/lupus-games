@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Minesweeper
+Name[tr]=Mayın Tarlarsı
+GenericName=Minesweeper
+GenericName[tr]=Mayın Tarlarsı
+Exec=minesweeper %u
+Icon=minesweeper
+Terminal=false
+Categories=Qt;LupuS;Games
+Keywords=games;lupus;minesweeper
+StartupNotify=true
+StartupWMClass=minesweeper

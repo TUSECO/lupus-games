@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Chess
+Name[tr]=Satranç
+GenericName=Chess
+GenericName[tr]=Satranç
+Exec=chess %u
+Icon=chess
+Terminal=false
+Categories=Qt;LupuS;Games
+Keywords=games;lupus;chess
+StartupNotify=true
+StartupWMClass=chess
