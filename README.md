@@ -1,6 +1,7 @@
 ### LupuS Games
 
 **Games:**
+
 - FlappyBird (Temporarily removed)
 - Chess
 - TicTacToe
@@ -8,13 +9,14 @@
 - MineSweeper
 
 **Dependencies:**
+
 - PyQt6
 - pygame
 - noise
 
 ```bash
 # Clone Repository
-git clone https://github.com/TeknoAnka/lupus-games
+git clone https://github.com/Antolun/lupus-games
 cd lupus-games
 
 # Start Build
