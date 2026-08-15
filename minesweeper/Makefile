@@ -6,7 +6,7 @@ run:
 	python3 main.py
 
 package:
-	./build-pisi.sh
+	./build-luppo.sh
 
 clean:
-	rm -f *.pisi
+	rm -f *.luppo

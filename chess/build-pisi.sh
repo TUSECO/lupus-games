@@ -2,29 +2,29 @@
 set -euo pipefail
 
 echo "=========================================="
-echo " Chess — PiSi Package Builder"
+echo " Chess — Luppo Package Builder"
 echo "=========================================="
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export CHESS_SRC_DIR="${SCRIPT_DIR}"
 cd "${SCRIPT_DIR}"
 
-echo "[1/1] Creating PiSi package (.pisi)..."
-if command -v pisi &>/dev/null; then
-    pisi build pspec.xml --no-sandbox --ignore-dependency
+echo "[1/1] Creating Luppo package (.luppo)..."
+if command -v luppo &>/dev/null; then
+    luppo build lopec.xml --no-sandbox --ignore-dependency
 else
-    echo "Error: pisi command not found!"
+    echo "Error: luppo command not found!"
     exit 1
 fi
 
-echo "Locating generated .pisi package..."
+echo "Locating generated .luppo package..."
 
-PISI_FILE=$(find . /var/pisi /tmp -name "chess-*.pisi" 2>/dev/null | head -n 1 || true)
+LUPPO_FILE=$(find . /var/luppo /tmp -name "chess-*.luppo" 2>/dev/null | head -n 1 || true)
 
-if [ -n "${PISI_FILE}" ] && [ -f "${PISI_FILE}" ]; then
-    TARGET_PATH="${SCRIPT_DIR}/$(basename "${PISI_FILE}")"
-    if [ "${PISI_FILE}" != "${TARGET_PATH}" ]; then
-        cp -f "${PISI_FILE}" "${TARGET_PATH}"
+if [ -n "${LUPPO_FILE}" ] && [ -f "${LUPPO_FILE}" ]; then
+    TARGET_PATH="${SCRIPT_DIR}/$(basename "${LUPPO_FILE}")"
+    if [ "${LUPPO_FILE}" != "${TARGET_PATH}" ]; then
+        cp -f "${LUPPO_FILE}" "${TARGET_PATH}"
     fi
     
     if [ -n "${SUDO_USER:-}" ]; then
@@ -33,10 +33,10 @@ if [ -n "${PISI_FILE}" ] && [ -f "${PISI_FILE}" ]; then
     
     echo ""
     echo "=========================================="
-    echo " SUCCESS! .pisi package saved to:"
+    echo " SUCCESS! .luppo package saved to:"
     echo " ${TARGET_PATH}"
     echo "=========================================="
 else
-    echo "Error: .pisi package file could not be found."
+    echo "Error: .luppo package file could not be found."
     exit 1
 fi

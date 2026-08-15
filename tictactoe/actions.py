@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
+from luppo.actionsapi import luppotools
+from luppo.actionsapi import shelltools
 import os
 
 WorkDir = "."
@@ -16,7 +16,7 @@ def install():
     if not os.path.isfile(main_py):
         main_py = "tictactoe.py"
     if os.path.isfile(main_py):
-        pisitools.insinto("/usr/share/tictactoe", main_py)
+        luppotools.insinto("/usr/share/tictactoe", main_py)
 
     # Launcher script (/usr/bin/tictactoe)
     launcher_path = os.path.join(src_dir, "tictactoe")
@@ -29,26 +29,26 @@ def install():
         os.chmod("tictactoe", 0o755)
         launcher_path = "tictactoe"
 
-    pisitools.dobin(launcher_path)
+    luppotools.dobin(launcher_path)
 
     # Desktop entry
     desktop_path = os.path.join(src_dir, "tictactoe.desktop")
     if not os.path.isfile(desktop_path):
         desktop_path = "tictactoe.desktop"
     if os.path.isfile(desktop_path):
-        pisitools.insinto("/usr/share/applications", desktop_path)
+        luppotools.insinto("/usr/share/applications", desktop_path)
 
     # App icon
     icon_path = os.path.join(src_dir, "tictactoe.png")
     if not os.path.isfile(icon_path):
         icon_path = os.path.join("tictactoe.png")
     if os.path.isfile(icon_path):
-        pisitools.insinto("/usr/share/tictactoe", icon_path, "tictactoe.png")
+        luppotools.insinto("/usr/share/tictactoe", icon_path, "tictactoe.png")
     if os.path.isfile(icon_path):
-        pisitools.insinto("/usr/share/icons/hicolor/128x128/apps", icon_path, "tictactoe.png")
+        luppotools.insinto("/usr/share/icons/hicolor/128x128/apps", icon_path, "tictactoe.png")
 
     license_path = os.path.join(src_dir, "LICENSE")
     if not os.path.isfile(license_path):
         license_path = "LICENSE"
     if os.path.isfile(license_path):
-        pisitools.dodoc(license_path)
+        luppotools.dodoc(license_path)

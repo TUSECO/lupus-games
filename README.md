@@ -2,7 +2,6 @@
 
 **Games:**
 
-- FlappyBird (Temporarily removed)
 - Chess
 - TicTacToe
 - Snake
@@ -21,9 +20,9 @@ cd lupus-games
 
 # Start Build
 cd example-game
-chmod +x ./build-pisi.sh
-sudo ./build-pisi.sh
+chmod +x ./build-luppo.sh
+sudo ./build-luppo.sh
 
 # Install Package
-sudo pisi it ./example-game-*-x86_64.pisi
+sudo luppo it ./example-game-*-x86_64.luppo
 ```
