@@ -15,7 +15,7 @@
 
 ```bash
 # Clone Repository
-git clone https://github.com/Antolun/lupus-games
+git clone https://github.com/TUSECO/lupus-games
 cd lupus-games
 
 # Start Build
